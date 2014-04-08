@@ -1,0 +1,51 @@
+﻿@model MvcApplication3.Models.UserInfo
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@if (Request.IsAuthenticated)
+{
+    @section featured {
+        <h2>Details</h2>
+
+        <fieldset>
+            <legend>UserInfo</legend>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.UserName)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.UserName)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.SecondName)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.SecondName)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Sex)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Sex)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.About)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.About)
+            </div>
+        </fieldset>
+    }
+}
+<section class="featured">
+    @Html.ActionLink("Watch all UserInfo", "Index", "UserInfo")
+</section>
+
+
+
+
+

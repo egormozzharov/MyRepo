@@ -1,0 +1,60 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text>
+    Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="list-group">
+                <li class="list-group-item">@Html.ActionLink("Edit profile", "Create", "UserInfo")</li>
+                <li class="list-group-item">@Html.ActionLink("My messages", "Messages", "UserInfo")</li>
+            </ul>
+        </div>
+        <div class="col-md-2">
+            <img src=@Url.Content("~/Content/Images/8F.jpg") alt="avatar" class="img-thumbnail" width="100"/>
+        </div>
+    </div>
+
+
+    <div class="row">
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-xs-6 col-md-1">
+            <a href="#" class="thumbnail">
+                <img src=@Url.Content("~/Content/Images/8F.jpg") alt="...">
+            </a>
+        </div>
+        <div class="col-xs-6 col-md-1">
+            <a href="#" class="thumbnail">
+                <img src=@Url.Content("~/Content/Images/8F.jpg") alt="...">
+            </a>
+        </div>
+        <div class="col-xs-6 col-md-1">
+            <a href="#" class="thumbnail">
+                <img src=@Url.Content("~/Content/Images/8F.jpg") alt="...">
+            </a>
+        </div>
+        <div class="col-xs-6 col-md-1">
+            <a href="#" class="thumbnail">
+                <img src=@Url.Content("~/Content/Images/8F.jpg") alt="...">
+            </a>
+        </div>
+        ...
+    </div>
+
+    </text>
+}
+else
+{
+    <ul>
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
